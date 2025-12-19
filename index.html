@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>💙🌻Hi Jayeem-Kun🌻💙</title>
 
     <style>
@@ -69,6 +70,18 @@
         transform: translateY(-6px);
       }
       
+      @media (max-width: 768px) {
+        .card {
+          padding: 28px 20px;
+          width: 95vw;
+          max-height: 92vh;
+        }
+        
+        .card:hover {
+          transform: translateY(-3px);
+        }
+      }
+      
       /* Scrollbar styling */
       .card::-webkit-scrollbar {
         width: 8px;
@@ -104,6 +117,19 @@
         text-align: center;
         text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
       }
+      
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.5em;
+          gap: 6px;
+          margin: 0 0 16px;
+          flex-wrap: wrap;
+        }
+        
+        h1 .emoji {
+          font-size: 0.9em;
+        }
+      }
 
       /* ================= BUTTONS ================= */
       .buttons {
@@ -128,6 +154,28 @@
 
       button:hover {
         transform: translateY(-2px);
+      }
+      
+      @media (max-width: 768px) {
+        button {
+          padding: 12px 28px;
+          font-size: 15px;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .buttons {
+          flex-direction: column;
+          gap: 12px;
+          width: 100%;
+        }
+        
+        button {
+          width: 100%;
+          max-width: 200px;
+        }
       }
 
       #yes {
@@ -211,6 +259,24 @@
         width: 350px;
         height: 220px;
         transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      
+      @media (max-width: 768px) {
+        .envelope {
+          width: 280px;
+          height: 180px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .envelope {
+          width: 240px;
+          height: 150px;
+        }
+        
+        .envelope-wrapper {
+          min-height: 320px;
+        }
       }
 
       .envelope.hide {
@@ -311,6 +377,38 @@
         line-height: 1.8;
         color: #1e293b;
         text-align: left;
+      }
+      
+      @media (max-width: 768px) {
+        .message-card {
+          padding: 25px 20px;
+          max-height: 80vh;
+        }
+        
+        .message-card h1 {
+          font-size: 2em;
+        }
+        
+        .message-card p {
+          font-size: 15px;
+          line-height: 1.7;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .message-card {
+          padding: 20px 16px;
+          width: 95%;
+        }
+        
+        .message-card h1 {
+          font-size: 1.8em;
+        }
+        
+        .message-card p {
+          font-size: 14px;
+          line-height: 1.65;
+        }
       }
     </style>
   </head>
