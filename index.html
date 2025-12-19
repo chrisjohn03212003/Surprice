@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>💙🌻Hi Jayeem-Kun🌻💙</title>
+
+    <style>
+      /* ================= BASE ================= */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        overflow: hidden;
+
+        background: radial-gradient(
+            circle at bottom left,
+            #fef3c7 0%,
+            transparent 40%
+          ),
+          radial-gradient(circle at top right, #bfdbfe 0%, transparent 45%),
+          radial-gradient(circle at center, #e0f2fe 0%, transparent 60%),
+          linear-gradient(135deg, #dbeafe, #93c5fd, #60a5fa);
+
+        animation: backgroundShift 10s ease-in-out infinite alternate;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #0f172a;
+      }
+
+      @keyframes backgroundShift {
+        0% {
+          filter: hue-rotate(0deg) brightness(1);
+        }
+        100% {
+          filter: hue-rotate(6deg) brightness(1.05);
+        }
+      }
+
+      /* ================= CARD ================= */
+     
+      .card {
+        background: rgba(255, 255, 255, 0.6);
+        padding: 42px 35px;
+        border-radius: 15px;
+        backdrop-filter: blur(18px);
+
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15),
+          0 0 40px rgba(147, 197, 253, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+        width: min(650px, 92vw);
+        max-height: 90vh;
+        text-align: center;
+        position: relative;
+        z-index: 5;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        overflow-y: auto;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+      }
+      
+      /* Scrollbar styling */
+      .card::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      .card::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+      }
+      
+      .card::-webkit-scrollbar-thumb {
+        background: rgba(96, 165, 250, 0.5);
+        border-radius: 10px;
+      }
+      
+      .card::-webkit-scrollbar-thumb:hover {
+        background: rgba(96, 165, 250, 0.7);
+      }
+
+      
+
+      /* ================= TEXT ================= */
+      h1 {
+        margin: 0 0 22px;
+        font-weight: 600;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        line-height: 1.35;
+        text-align: center;
+        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
+      }
+
+      /* ================= BUTTONS ================= */
+      .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 14px 34px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+      }
+
+      #yes {
+        background: linear-gradient(135deg, #fde047, #fbbf24);
+        color: #1e3a8a;
+      }
+
+      #no {
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        color: white;
+      }
+
+      /* ================= FLOATING ICONS ================= */
+      .floating {
+        position: absolute;
+        font-size: 42px;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        filter: drop-shadow(0 0 14px rgba(147, 197, 253, 0.45));
+        animation: floatSoft linear forwards;
+      }
+
+      @keyframes floatSoft {
+        0% {
+          transform: translateY(0) scale(0.8) rotate(0deg);
+          opacity: 0;
+        }
+        15% {
+          opacity: 0.75;
+        }
+        50% {
+          transform: translateY(-45vh) scale(1) rotate(180deg);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(-100vh) scale(0.85) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ================= FADE ================= */
+      .fade-in {
+        animation: fadeIn 1.2s ease forwards;
+      }
+
+      .fade-out {
+        animation: fadeOut 1s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+      }
+
+      /* ================= ENVELOPE ================= */
+      .envelope-wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 400px;
+      }
+
+      .envelope {
+        position: relative;
+        width: 350px;
+        height: 220px;
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .envelope.hide {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+      }
+
+      .envelope-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .envelope-front {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        bottom: 0;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        border-radius: 0 0 8px 8px;
+        z-index: 3;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .envelope-flap {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        top: 0;
+        background: linear-gradient(135deg, #93c5fd, #60a5fa);
+        border-radius: 8px 8px 0 0;
+        transform-origin: top center;
+        transition: transform 1s ease;
+        z-index: 4;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .envelope-flap::before {
+        content: '💌';
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+      }
+
+      .envelope-flap.open {
+        transform: rotateX(-180deg);
+      }
+
+      /* ================= MESSAGE CARD ================= */
+      .message-card {
+        position: absolute;
+        width: 90%;
+        max-width: 550px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        padding: 35px;
+        opacity: 0;
+        transform: scale(0.3);
+        transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        max-height: 75vh;
+        overflow-y: auto;
+      }
+
+      .message-card.show {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .message-card::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .message-card::-webkit-scrollbar-track {
+        background: rgba(96, 165, 250, 0.1);
+        border-radius: 10px;
+      }
+
+      .message-card::-webkit-scrollbar-thumb {
+        background: rgba(96, 165, 250, 0.5);
+        border-radius: 10px;
+      }
+
+      .message-card h1 {
+        font-size: 2.6em;
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .message-card p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #1e293b;
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card" id="card">
+      <h1 id="intro" class="title">
+        <span class="emoji">💙 🌻</span>
+        <span class="text">I have a question…</span>
+        <span class="emoji">🌻 💙</span>
+      </h1>
+
+      <h1 id="question" style="display: none">
+        <span class="emoji">💙🌻</span>
+        <span class="text">Do you like Jaycee?</span>
+        <span class="emoji">🌻💙</span>
+      </h1>
+
+      <div class="buttons" id="buttons" style="display: none">
+        <button id="yes">YES</button>
+        <button id="no">NO</button>
+      </div>
+    </div>
+
+    <script>
+      const intro = document.getElementById("intro");
+      const question = document.getElementById("question");
+      const buttons = document.getElementById("buttons");
+      const card = document.getElementById("card");
+      const noBtn = document.getElementById("no");
+      const yesBtn = document.getElementById("yes");
+
+      /* INTRO FLOW */
+      setTimeout(() => intro.classList.add("fade-out"), 1800);
+
+      setTimeout(() => {
+        intro.style.display = "none";
+        question.style.display = "flex";
+        buttons.style.display = "flex";
+        question.classList.add("fade-in");
+      }, 3400);
+
+      /* NO BUTTON DODGE */
+      noBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const x = (Math.random() - 0.5) * 120;
+        const y = (Math.random() - 0.5) * 20;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+
+      /* YES BUTTON */
+      yesBtn.addEventListener("click", () => {
+        card.classList.add("fade-out");
+        setTimeout(() => {
+          card.innerHTML = `
+            <div class="envelope-wrapper">
+              <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+              </div>
+              
+              <div class="message-card">
+                <h1>🌻💙</h1>
+                <p>
+Just like sunflowers always turn to the light 🌻✨,<br>
+you make my days brighter and warmer in ways I never expected 💙☀️<br><br>
+
+Lately, we've had a few misunderstandings, and I want you to know how truly sorry I am 🥺💭.
+None of it was ever my intention, and I hope you can feel how genuine my heart is when it comes to you 🤍.
+You matter to me more than I sometimes know how to express 💫.<br><br>
+
+I'm incredibly thankful that I met you 🍀.
+Out of all the moments and chances in life, meeting you is something I will always be grateful for 🌙.
+Every time you show care, concern, or kindness toward me, it means more than you probably realize 💞.
+It reminds me that I'm not alone, and that someone truly sees me 💙🌷<br><br>
+
+Thank you so much for the virtual graduation gift you gave me 🎓🎁.
+It made me feel deeply loved, remembered, and supported during such an important moment in my life 🥰.
+That gesture came from your heart, and I will always treasure it 💖✨<br><br>
+
+I care about you more than I can easily put into words 💗, and I love you more than I can explain 🌹.
+You hold a special place in my heart 💝, and the thought of losing you honestly scares me 😢.
+I don't want to imagine my days without you in them 💫.
+I hope we can keep choosing each other, again and again 🤍🌻.<br><br>
+
+<span style="opacity:0.8;">
+Thank you for being patient with me 🙏, for caring about me 💙, and for staying 🌙.
+I am truly thankful for you, always 💞
+</span>
+                </p>
+              </div>
+            </div>
+          `;
+          card.classList.remove("fade-out");
+          card.classList.add("fade-in");
+          
+          // Animation sequence
+          setTimeout(() => {
+            // Open the envelope flap
+            document.querySelector('.envelope-flap').classList.add('open');
+          }, 600);
+          
+          setTimeout(() => {
+            // Hide envelope and show message card
+            document.querySelector('.envelope').classList.add('hide');
+            document.querySelector('.message-card').classList.add('show');
+          }, 1800);
+        }, 600);
+      });
+
+      /* FLOATING ICONS */
+      function createFloating(icon) {
+        const el = document.createElement("div");
+        el.className = "floating";
+        el.innerText = icon;
+
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.top = Math.random() * 100 + "vh";
+        el.style.animationDuration = 18 + Math.random() * 10 + "s";
+
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 28000);
+      }
+
+      /* START IMMEDIATELY */
+      for (let i = 0; i < 4; i++) {
+        createFloating("💙");
+        createFloating("🌻");
+      }
+
+      setInterval(() => createFloating("💙"), 1800);
+      setInterval(() => createFloating("🌻"), 2200);
+    </script>
+  </body>
+</html>
